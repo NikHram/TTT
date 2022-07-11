@@ -79,7 +79,9 @@ function randomCellButton() {
         gameResult();
     } else if (!isActive(i) && !isTheGameEnded()) {
         printMessage("The game has ended");
-    } else randomCellButton();
+    } else if (isTheGameEnded()) {
+        randomCellButton();
+    }
 }
 
 function randomCell(cellCount) {
