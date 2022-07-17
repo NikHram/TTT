@@ -23,15 +23,15 @@ const winningConditions = [
 
 
 for (let i = 0; i < gameField.length; i++) {
-    gameField[i].addEventListener("click", (e) => {
+    gameField[i].addEventListener("click", () => {
         if (isActive(i) && playerFlag === 1 && !gameResult()) {
-            e.target.classList.add("cross");
-            currentState[i] = "X"
+            gameField[i].classList.add("cross");
+            currentState[i] = "X";
             changeTurn("Circle turn");
             gameResult();
         } else if (isActive(i) && playerFlag === 2 && !gameResult()) {
-            e.target.classList.add("circle");
-            currentState[i] = "O"
+            gameField[i].classList.add("circle");
+            currentState[i] = "O";
             changeTurn("Cross turn");
             gameResult();
         } else if (!isActive(i) && isTheGameEnded()) {
@@ -79,7 +79,7 @@ function randomCellButton() {
         gameResult();
     } else if (!isActive(i) && !isTheGameEnded()) {
         printMessage("The game has ended");
-    } else if (isTheGameEnded()) {
+    } else if (!isTheGameEnded()) {
         randomCellButton();
     }
 }
